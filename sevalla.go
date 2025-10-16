@@ -183,7 +183,10 @@ func (c *Client) Do(req *http.Request, v interface{}) (*Response, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	// Ensure the response body is closed; ignore close error intentionally
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	response := &Response{Response: resp}
 	response.populatePageValues()

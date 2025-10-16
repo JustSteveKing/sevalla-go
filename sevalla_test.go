@@ -2546,7 +2546,7 @@ func TestPopulatePageValues(t *testing.T) {
 			}
 
 			if tt.linkHeader != "" {
-				resp.Response.Header.Set("Link", tt.linkHeader)
+				resp.Header.Set("Link", tt.linkHeader)
 			}
 
 			resp.populatePageValues()
