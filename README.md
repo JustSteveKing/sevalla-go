@@ -3,6 +3,10 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/juststeveking/sevalla-go.svg)](https://pkg.go.dev/github.com/juststeveking/sevalla-go)
 [![Go Report Card](https://goreportcard.com/badge/github.com/juststeveking/sevalla-go)](https://goreportcard.com/report/github.com/juststeveking/sevalla-go)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/JustSteveKing/sevalla-go/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/JustSteveKing/sevalla-go/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/JustSteveKing/sevalla-go/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/JustSteveKing/sevalla-go/actions/workflows/codeql.yml)
+[![Security](https://github.com/JustSteveKing/sevalla-go/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/JustSteveKing/sevalla-go/actions/workflows/security.yml)
+[![codecov](https://codecov.io/gh/JustSteveKing/sevalla-go/branch/main/graph/badge.svg)](https://codecov.io/gh/JustSteveKing/sevalla-go)
 
 A comprehensive, production-ready Go client library for the Sevalla API, providing type-safe access to all Sevalla services including applications, databases, static sites, deployments, and CI/CD pipelines.
 

@@ -6,7 +6,7 @@ We support the latest minor series of the SDK. Please use the newest release for
 
 ## Reporting a Vulnerability
 
-Please report vulnerabilities via GitHub Security Advisories or by emailing steve@juststeveking.uk. We'll acknowledge within 72 hours and aim to provide a fix or mitigation as soon as possible.
+Please report vulnerabilities via GitHub Security Advisories or by emailing steve@juststeveking.com. We'll acknowledge within 72 hours and aim to provide a fix or mitigation as soon as possible.
 
 ## Safe Handling
 
