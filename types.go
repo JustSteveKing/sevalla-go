@@ -194,10 +194,11 @@ type PipelineRunStep struct {
 
 // ListOptions represents options for listing resources
 type ListOptions struct {
-	Page    int    `url:"page,omitempty"`
-	PerPage int    `url:"per_page,omitempty"`
-	Sort    string `url:"sort,omitempty"`
-	Order   string `url:"order,omitempty"`
+	Page      int    `url:"page,omitempty"`
+	PerPage   int    `url:"per_page,omitempty"`
+	Sort      string `url:"sort,omitempty"`
+	Order     string `url:"order,omitempty"`
+	CompanyID string `url:"company_id,omitempty"`
 }
 
 // Backup represents a database backup
