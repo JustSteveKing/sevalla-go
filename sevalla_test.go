@@ -1562,6 +1562,57 @@ func TestStaticSitesService_List(t *testing.T) {
 	}
 }
 
+func TestStaticSitesService_ListWithCompanyID(t *testing.T) {
+	mux := http.NewServeMux()
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	client := NewClient(
+		WithAPIKey("test-key"),
+		WithBaseURL(server.URL),
+	)
+
+	want := []*StaticSite{
+		{
+			ID:     "site-1",
+			Name:   "test-site",
+			State:  StateRunning,
+			Region: RegionUSCentral,
+		},
+	}
+
+	mux.HandleFunc("/static-sites", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != "GET" {
+			t.Errorf("Expected GET method, got %s", r.Method)
+		}
+
+		// Check that company_id query parameter is present
+		companyID := r.URL.Query().Get("company_id")
+		if companyID != "company-123" {
+			t.Errorf("Expected company_id=company-123 query parameter, got %s", companyID)
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(want); err != nil {
+			t.Fatalf("Failed to encode response: %v", err)
+		}
+	})
+
+	ctx := context.Background()
+	opts := &ListOptions{
+		CompanyID: "company-123",
+	}
+	sites, _, err := client.StaticSites.List(ctx, opts)
+
+	if err != nil {
+		t.Fatalf("StaticSites.List returned error: %v", err)
+	}
+
+	if len(sites) != len(want) {
+		t.Errorf("Expected %d sites, got %d", len(want), len(sites))
+	}
+}
+
 func TestStaticSitesService_Get(t *testing.T) {
 	mux := http.NewServeMux()
 	server := httptest.NewServer(mux)
