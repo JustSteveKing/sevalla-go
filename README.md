@@ -732,6 +732,24 @@ for _, site := range sites {
 }
 ```
 
+**Filtering by Company ID:**
+
+```go
+// List static sites for a specific company
+sites, resp, err := client.StaticSites.List(ctx, &sevalla.ListOptions{
+    CompanyID: "company-123",
+    PerPage:   50,
+    Sort:      "name",
+})
+if err != nil {
+    log.Fatal(err)
+}
+
+fmt.Printf("Found %d sites for company\n", len(sites))
+```
+
+**Note:** The `CompanyID` field in `ListOptions` is supported across all list operations (Applications, Databases, Static Sites, Deployments, and Pipelines) to filter results by company when you have access to multiple companies.
+
 ### Deployments
 
 Monitor and manage application and static site deployments.
